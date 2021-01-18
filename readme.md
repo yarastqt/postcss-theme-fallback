@@ -2,6 +2,8 @@
 
 [![NPM Version][npm-img]][npm-url] [![github (ci)][github-ci]][github-ci]
 
+A postcss plugin to adding fallback values for css-variables.
+
 ## ✈️ Install
 
 ```sh
@@ -30,6 +32,20 @@ module.exports = {
 |----------------------------------|-----------------------------|---------|
 | `theme` *Record<string, string>* | Object with theme variables | {}      |
 | `silent?` *boolean*              | Disable warnings output     | false   |
+
+## 🌈 Example
+
+```css
+/* input.css */
+.component {
+  width: var(--var-a);
+}
+
+/* output.css */
+.component {
+  width: var(--var-a, 10px);
+}
+```
 
 ## License
 
