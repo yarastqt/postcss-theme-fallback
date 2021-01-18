@@ -2,6 +2,35 @@
 
 [![NPM Version][npm-img]][npm-url] [![github (ci)][github-ci]][github-ci]
 
+## ✈️ Install
+
+```sh
+npm i -DE postcss-theme-fallback
+```
+
+## ☄️ Usage
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('postcss-theme-fallback')({
+      theme: {
+        '--var-a': '10px',
+        '--var-b': '20px',
+      },
+    }),
+  ],
+}
+```
+
+### Options
+
+| Name                             | Description                 | Default |
+|----------------------------------|-----------------------------|---------|
+| `theme` *Record<string, string>* | Object with theme variables | {}      |
+| `silent?` *boolean*              | Disable warnings output     | false   |
+
 ## License
 
 Project is [MIT licensed](https://github.com/yarastqt/postcss-theme-fallback/blob/master/LICENSE.md).
