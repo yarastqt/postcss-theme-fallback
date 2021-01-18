@@ -3,10 +3,12 @@ import { Declaration, plugin } from 'postcss'
 export interface ThemeFallbackOptions {
   /**
    * Object with theme variables
+   * @default {}
    */
   theme: Record<string, string>
   /**
    * Disable warnings output
+   * @default false
    */
   silent?: boolean
 }
