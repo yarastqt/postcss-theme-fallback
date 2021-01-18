@@ -1,0 +1,4 @@
+.component {
+  width: var(--component-width);
+  padding: var(--component-padding-vertical) var(--component-padding-horizontal);
+}
