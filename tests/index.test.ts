@@ -3,7 +3,7 @@ import { configureRunner } from './internal/runner'
 
 const run = configureRunner([
   plugin({
-    theme: {
+    variables: {
       '--component-width': '10px',
       '--component-padding-vertical': '8px',
       '--component-padding-horizontal': '10px',
@@ -36,17 +36,11 @@ test('should add fallback for variables with calc', async () => {
 })
 
 test('should skip empty selector', async () => {
-  await run(
-    '.component {}',
-    '.component {}',
-  )
+  await run('.component {}', '.component {}')
 })
 
 test('should skip declaration without variable', async () => {
-  await run(
-    '.component { width: 10px }',
-    '.component { width: 10px }',
-  )
+  await run('.component { width: 10px }', '.component { width: 10px }')
 })
 
 test('should skip variable if fallback already exists', async () => {
@@ -60,14 +54,14 @@ test('should warn if fallback not exists in theme', async () => {
   await run(
     '.component { height: var(--component-height) }',
     '.component { height: var(--component-height) }',
-    '[postcss-theme-fallback]: Variable "--component-height" not exists in theme'
+    '[postcss-theme-fallback]: Variable "--component-height" not exists in theme',
   )
 })
 
 test('should not warn if fallback not exists in theme (silent)', async () => {
   const run = configureRunner([
     plugin({
-      theme: {},
+      variables: {},
       silent: true,
     }),
   ])
@@ -75,6 +69,6 @@ test('should not warn if fallback not exists in theme (silent)', async () => {
   await run(
     '.component { height: var(--component-height) }',
     '.component { height: var(--component-height) }',
-    ''
+    '',
   )
 })
