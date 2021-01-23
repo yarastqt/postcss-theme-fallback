@@ -1,5 +1,6 @@
 import plugin from '../src/index'
 import { configureRunner } from './internal/runner'
+import { resolveFixture } from './internal/fixture-resolver'
 
 const run = configureRunner([
   plugin({
@@ -80,4 +81,17 @@ test('should throw error if variables not set', async () => {
   } catch (error) {
     expect(error.message).toBe('Option "variables" is not set')
   }
+})
+
+test('should add fallback for variables from theme', async () => {
+  const run = configureRunner([
+    plugin({
+      themeSource: resolveFixture('variables.css'),
+    }),
+  ])
+
+  await run(
+    ' .component { width: var(--component-width) }',
+    ' .component { width: var(--component-width, 10px) }',
+  )
 })
