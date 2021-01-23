@@ -1,7 +1,8 @@
 {
   "name": "postcss-theme-fallback",
   "version": "1.0.0",
-  "main": "index.js",
+  "typings": "lib/index.d.ts",
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf lib",
