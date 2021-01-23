@@ -1,5 +1,6 @@
 {
   "name": "postcss-theme-fallback",
+  "description": "A postcss plugin to adding fallback values for css-variables",
   "version": "1.0.0",
   "typings": "lib/index.d.ts",
   "main": "lib/index.js",
