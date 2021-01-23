@@ -72,3 +72,12 @@ test('should not warn if fallback not exists in theme (silent)', async () => {
     '',
   )
 })
+
+test('should throw error if variables not set', async () => {
+  try {
+    const run = configureRunner([plugin()])
+    await run('', '')
+  } catch (error) {
+    expect(error.message).toBe('Option "variables" is not set')
+  }
+})
