@@ -17,10 +17,13 @@ npm i -DE postcss-theme-fallback
 module.exports = {
   plugins: [
     require('postcss-theme-fallback')({
+      // Use variables from object:
       variables: {
         '--var-a': '10px',
         '--var-b': '20px',
       },
+      // Or load variables from theme:
+      // themeSource: './src/theme/acme.css',
     }),
   ],
 }
