@@ -30,7 +30,7 @@ module.exports = {
 
 | Name                             | Description                 | Default |
 |----------------------------------|-----------------------------|---------|
-| `theme` *Record<string, string>* | Object with theme variables | {}      |
+| `theme` *Record<string, string>* | Object with theme variables |         |
 | `silent?` *boolean*              | Disable warnings output     | false   |
 
 ## 🌈 Example

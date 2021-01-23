@@ -5,7 +5,6 @@ export type Variables = Record<string, string>
 export interface ThemeFallbackOptions {
   /**
    * Object with theme variables
-   * @default {}
    */
   variables: Promise<Variables> | Variables
   /**
