@@ -91,7 +91,7 @@ test('should add fallback for variables from theme', async () => {
   ])
 
   await run(
-    ' .component { width: var(--component-width) }',
-    ' .component { width: var(--component-width, 10px) }',
+    '.component { width: var(--component-width) }',
+    '.component { width: var(--component-width, 10px) }',
   )
 })
