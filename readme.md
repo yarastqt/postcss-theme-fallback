@@ -28,10 +28,11 @@ module.exports = {
 
 ### Options
 
-| Name                                 | Description                 | Default |
-|--------------------------------------|-----------------------------|---------|
-| `variables` *Record<string, string>* | Object with theme variables |         |
-| `silent?` *boolean*                  | Disable warnings output     | false   |
+| Name                                                              | Description                                            | Default |
+|-------------------------------------------------------------------|--------------------------------------------------------|---------|
+| `variables` *Record<string, string>*                              | Object with theme variables                            |         |
+| `themeSource` *string* | A source path to theme, uses for extract css-variables |         |
+| `silent?` *boolean*                                               | Disable warnings output                                | false   |
 
 ## 🌈 Example
 

@@ -1,5 +1,7 @@
 import { Declaration, plugin } from 'postcss'
 
+import { getVariablesFromTheme } from './theme-loader'
+
 export type Variables = Record<string, string>
 
 export interface ThemeFallbackOptions {
@@ -8,6 +10,10 @@ export interface ThemeFallbackOptions {
    */
   variables: Promise<Variables> | Variables
   /**
+   * A source path to theme, uses for extract css-variables
+   */
+  themeSource?: string;
+  /**
    * Disable warnings output
    * @default false
    */
@@ -15,7 +21,11 @@ export interface ThemeFallbackOptions {
 }
 
 export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) => {
-  if (options === undefined || options.variables === undefined) {
+  if (options?.themeSource !== undefined) {
+    options.variables = getVariablesFromTheme(options.themeSource)
+  }
+
+  if (options?.variables === undefined) {
     throw new Error('Option "variables" is not set')
   }
 
