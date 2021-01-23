@@ -17,7 +17,7 @@ npm i -DE postcss-theme-fallback
 module.exports = {
   plugins: [
     require('postcss-theme-fallback')({
-      theme: {
+      variables: {
         '--var-a': '10px',
         '--var-b': '20px',
       },
@@ -28,10 +28,10 @@ module.exports = {
 
 ### Options
 
-| Name                             | Description                 | Default |
-|----------------------------------|-----------------------------|---------|
-| `theme` *Record<string, string>* | Object with theme variables |         |
-| `silent?` *boolean*              | Disable warnings output     | false   |
+| Name                                 | Description                 | Default |
+|--------------------------------------|-----------------------------|---------|
+| `variables` *Record<string, string>* | Object with theme variables |         |
+| `silent?` *boolean*                  | Disable warnings output     | false   |
 
 ## 🌈 Example
 
