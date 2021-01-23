@@ -20,6 +20,13 @@ export interface ThemeFallbackOptions {
   silent?: boolean
 }
 
+/**
+ * This plugin set fallback values for css-variables from "variables" or "theme".
+ *
+ * @example
+ * require('postcss-theme-fallback')({ variables: variablesObject })
+ * require('postcss-theme-fallback')({ themeSource: themeSourcePath })
+ */
 export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) => {
   if (options?.themeSource !== undefined) {
     options.variables = getVariablesFromTheme(options.themeSource)
