@@ -8,7 +8,7 @@ export interface ThemeFallbackOptions {
   /**
    * Object with theme variables
    */
-  variables: Promise<Variables> | Variables
+  variables?: Promise<Variables> | Variables
   /**
    * A source path to theme, uses for extract css-variables
    */
@@ -37,7 +37,7 @@ export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) 
   }
 
   return async (root, result) => {
-    const variables = await options.variables
+    const variables = await options.variables as Variables
 
     root.walkDecls((decl) => {
       if (!decl.value.match(VARIABLE_USE_RE)) return
