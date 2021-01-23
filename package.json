@@ -11,9 +11,10 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "keywords": [
-    "postcss",
+    "css-vars-fallback",
+    "css-vars",
     "postcss-plugin",
-    "css variable"
+    "postcss"
   ],
   "author": "Eugene Tropin <yarastqt@gmail.com>",
   "license": "MIT",
