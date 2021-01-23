@@ -5,7 +5,7 @@ export interface ThemeFallbackOptions {
    * Object with theme variables
    * @default {}
    */
-  theme: Record<string, string>
+  variables: Record<string, string>
   /**
    * Disable warnings output
    * @default false
@@ -20,8 +20,11 @@ export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options =
       const variables = getDeclarationVariables(decl)
 
       for (const variable of variables) {
-        if (variable in options.theme) {
-          decl.value = decl.value.replace(VARIABLE_FULL_RE, `var(${variable}, ${options.theme[variable]})`)
+        if (variable in options.variables) {
+          decl.value = decl.value.replace(
+            VARIABLE_FULL_RE,
+            `var(${variable}, ${options.variables[variable]})`,
+          )
         } else if (!options.silent) {
           decl.warn(result, `[postcss-theme-fallback]: Variable "${variable}" not exists in theme`)
         }
