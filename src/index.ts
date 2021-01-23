@@ -2,9 +2,9 @@ import { Declaration, plugin } from 'postcss'
 
 import { getVariablesFromTheme } from './theme-loader'
 
-export type Variables = Record<string, string>
+type Variables = Record<string, string>
 
-export interface ThemeFallbackOptions {
+interface ThemeFallbackOptions {
   /**
    * Object with theme variables
    */
@@ -27,7 +27,7 @@ export interface ThemeFallbackOptions {
  * require('postcss-theme-fallback')({ variables: variablesObject })
  * require('postcss-theme-fallback')({ themeSource: themeSourcePath })
  */
-export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) => {
+export = plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) => {
   if (options?.themeSource !== undefined) {
     options.variables = getVariablesFromTheme(options.themeSource)
   }

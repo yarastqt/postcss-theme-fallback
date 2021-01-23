@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import postcss from 'postcss'
 import postcssImport from 'postcss-import'
 
-import type { Variables } from './index';
+type Variables = Record<string, string>
 
 /**
  * Load theme from source and return object with variables.
