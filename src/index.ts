@@ -13,7 +13,11 @@ export interface ThemeFallbackOptions {
   silent?: boolean
 }
 
-export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options = { theme: {} }) => {
+export default plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) => {
+  if (options === undefined || options.variables === undefined) {
+    throw new Error('Option "variables" is not set')
+  }
+
   return async (root, result) => {
     root.walkDecls((decl) => {
       if (!decl.value.match(VARIABLE_USE_RE)) return
