@@ -12,7 +12,7 @@ interface ThemeFallbackOptions {
   /**
    * A source path to theme, uses for extract css-variables
    */
-  themeSource?: string;
+  themeSource?: string
   /**
    * Disable warnings output
    * @default false
@@ -37,10 +37,11 @@ export = plugin<ThemeFallbackOptions>('postcss-theme-fallback', (options) => {
   }
 
   return async (root, result) => {
-    const variables = await options.variables as Variables
+    const variables = (await options.variables) as Variables
 
     root.walkDecls((decl) => {
       if (!decl.value.match(VARIABLE_USE_RE)) return
+
       const declVariables = getDeclarationVariables(decl)
 
       for (const variable of declVariables) {
